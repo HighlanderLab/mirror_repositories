@@ -1,5 +1,5 @@
 # modify from: https://github.com/isaacs/github/issues/415#issuecomment-561700485
-name: Mirror Repo
+name: Mirror AlphaPeel Repo
 on:
   schedule:
     # nightly (0th hour 0th minute of every day)
