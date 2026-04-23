@@ -2,7 +2,7 @@
 name: Mirror AlphaFamSeq Repo
 on:
   schedule:
-    # Runs at 05:00, on day 1 of the month
+    # Runs at 05:00, on day 5 of the month
     - cron:  '0 5 5 * *'
   workflow_dispatch:
 
