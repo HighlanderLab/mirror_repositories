@@ -1,0 +1,20 @@
+# modify from: https://github.com/isaacs/github/issues/415#issuecomment-561700485
+name: Mirror AlphaImpute-docs Repo
+on:
+  schedule:
+    # Runs at 05:00, on day 9 of the month
+    - cron:  '0 5 9 * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mirror
+      run: |
+        git clone --bare 'https://github.com/AlphaGenes/AlphaImpute-docs.git'
+        cd AlphaImpute-docs.git/
+        git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/HighlanderLab/AlphaImpute-docs.git"
+        git push --mirror --force github
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
