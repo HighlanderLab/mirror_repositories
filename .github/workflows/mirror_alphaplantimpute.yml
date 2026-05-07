@@ -12,9 +12,10 @@ jobs:
     steps:
     - name: Mirror
       run: |
-        git clone --bare 'https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/AlphaGenes/AlphaPlantImpute.git'
+        git clone --bare 'https://$GITHUB_ACTOR:$ALPHAGENES_TOKEN@github.com/AlphaGenes/AlphaPlantImpute.git'
         cd AlphaPlantImpute.git/
         git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/HighlanderLab/AlphaPlantImpute.git"
         git push --mirror --force github
       env:
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        ALPHAGNES_TOKEN: ${{ secrets.ALPHAGENES_TOKEN }}
